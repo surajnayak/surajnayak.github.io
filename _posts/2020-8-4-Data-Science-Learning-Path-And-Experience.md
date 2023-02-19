@@ -4,7 +4,7 @@ title: Data Science Learning Path & Experience
 permalink: /data-science-learning-path/
 ---
 
-The path from Data Engineer to Data Science Engineer may not be very easy. But, with constant effort and dedication one can be a Data Science Engineer.
+The path from Data Engineer to Machine Learning Engineer may not be very easy. But, with constant effort and dedication one can be a Machine Learning Engineer.
 
 When I started the path towards this new area there were hundreds of questions that made me anxious of the decision I made. But there are lot of free and paid tutorials online which can help ease the initial pressure of learning the jargons of Data Science world.
 
@@ -12,7 +12,7 @@ My interest began when Andrew Ng started Deep Learning specialization and I want
 
 Sometimes Python can help understand concepts on standalone machine. Thus helping to isolate core concepts versus distributed computing challenges. Spark has greatly abstracted these challenges.
 
-Data science engineering also involves understanding of the underlying platform where the algorithms are supposed to run. Such as Hadoop/Spark or Cloud computing frameworks. Knowing the strength and weakness of the ecosystem is a must before designing any pipeline.
+Machine Learning also involves understanding of the underlying platform where the algorithms are supposed to run. Such as Hadoop/Spark or Cloud computing frameworks. Knowing the strength and weakness of the ecosystem is a must before designing any pipeline.
 
 I started with courses available in Coursera first. Here is the list of resources I used and I'll keep adding more as and when I find great videos or online materials. Please feel free to add anything you may have found useful in the comment below:
 
