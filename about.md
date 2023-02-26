@@ -4,11 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am Machine Learning Engineer by profession and like to research on latest technological updates in the domain of machine learning, AI and distributed computing.
+ 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Apart from ML and distributed computing, I also research on embedded systems for IoT (Raspberry Pi, NodeMcu, Arduino), Android and Angular JS when I find time.
 
 ### Contact me
 
