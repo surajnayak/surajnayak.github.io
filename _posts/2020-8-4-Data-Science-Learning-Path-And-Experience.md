@@ -12,22 +12,21 @@ My interest began when Andrew Ng started Deep Learning specialization and I want
 
 Sometimes Python can help understand concepts on standalone machine. Thus helping to isolate core concepts versus distributed computing challenges. Spark has greatly abstracted these challenges.
 
-Machine Learning also involves understanding of the underlying platform where the algorithms are supposed to run. Such as Hadoop/Spark or Cloud computing frameworks. Knowing the strength and weakness of the ecosystem is a must before designing any pipeline.
+Machine Learning also involves understanding of the underlying platform where the algorithms are supposed to run. Such as Hadoop/Spark, Tensorflow, PyTorch, etc. Knowing the strength and weakness of the ecosystem is a must before designing any pipeline.
 
 I started with courses available in Coursera first. Here is the list of resources I used and I'll keep adding more as and when I find great videos or online materials. Please feel free to add anything you may have found useful in the comment below:
 
-YouTube - DataBricks/Spark Summit:
-Training: Data Science With Apache Spark
-Training Continues: Data Science With Apache Spark
-Coursera
-Deep Learning Specialization
-Machine Learning
-Applied Data Science with Python Specialization
-Other Courses
-Applied AI Course
-Online Books
-https://christophm.github.io/interpretable-ml-book
-https://www.fast.ai
-If you have challenges installing tools in you PC or Mac, DataBricks provide community edition portal for free. You can sign up for that and try. Youtube videos above shows how easy it is to try the Spark APIs using Interactive DataBricks Notebook.
+- YouTube - DataBricks/Spark Summit:
+- Training: Data Science With Apache Spark
+- Training Continues: Data Science With Apache Spark
+- Coursera
+- Deep Learning Specialization
+- Machine Learning
+- Applied Data Science with Python Specialization
+- Other Courses
+- Applied AI Course
+- Online Books
+  - https://christophm.github.io/interpretable-ml-book
+- https://www.fast.ai
 
-Blog was originally published at : https://blog.surajnayak.com/data-science-learning-path/
+If you have challenges installing tools in you PC or Mac, DataBricks provide community edition portal for free. You can sign up for that and try. Youtube videos above shows how easy it is to try the Spark APIs using Interactive DataBricks Notebook.
