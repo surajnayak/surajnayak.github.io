@@ -2,6 +2,9 @@
 layout: post
 title: Data Science Learning Path & Experience
 permalink: /data-science-learning-path/
+tags:
+- Data Science
+- Learning
 ---
 
 The path from Data Engineer to Machine Learning Engineer may not be very easy. But, with constant effort and dedication one can be a Machine Learning Engineer.
