@@ -20,29 +20,40 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+    <div class="layout-wrapper">
+      
+      <!-- Left Column / Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <header class="masthead clearfix">
+            <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" alt="{{ site.name }} avatar" /></a>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+            <div class="site-info">
+              <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+              <p class="site-description">{{ site.description }}</p>
+            </div>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-            <a href="{{ site.baseurl }}/tag_index">Tags</a>
-          </nav>
-        </header>
+            <nav class="site-nav">
+              <a href="{{ site.baseurl }}/">Blog</a>
+              <a href="{{ site.baseurl }}/about">About</a>
+              <a href="{{ site.baseurl }}/tag_index">Tags</a>
+            </nav>
+
+            <div class="sidebar-social">
+              {% include svg-icons.html %}
+            </div>
+          </header>
+        </div>
+      </aside>
+
+      <!-- Right Column / Content -->
+      <div id="main" role="main" class="content-wrapper">
+        {{ content }}
       </div>
+
     </div>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
+    <!-- Mobile Footer -->
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
@@ -53,5 +64,30 @@
 
     {% include analytics.html %}
     {% include footer.html %}
+
+    <!-- Script to highlight active navbar links -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.site-nav a');
+        navLinks.forEach(link => {
+          let href = link.getAttribute('href');
+          // Normalize paths for comparison
+          const isHome = href === '/' || href === '{{ site.baseurl }}/' || href === '{{ site.baseurl }}';
+          
+          if (isHome) {
+            if (currentPath === '/' || currentPath === '{{ site.baseurl }}/' || currentPath === '{{ site.baseurl }}/index.html') {
+              link.classList.add('active');
+            }
+          } else {
+            const cleanHref = href.replace(/\/$/, '');
+            const cleanPath = currentPath.replace(/\/$/, '');
+            if (cleanPath === cleanHref || cleanPath.startsWith(cleanHref + '/')) {
+              link.classList.add('active');
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>

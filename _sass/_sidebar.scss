@@ -1,0 +1,188 @@
+//
+// Styles for responsive Two-Column Sticky Sidebar Layout
+//
+
+.layout-wrapper {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0 15px;
+
+  @media screen and (min-width: 900px) {
+    display: flex;
+    max-width: 1080px;
+    gap: 60px;
+    padding: 60px 20px;
+    margin: 0 auto;
+  }
+}
+
+.sidebar {
+  width: 100%;
+  
+  @media screen and (min-width: 900px) {
+    width: 240px;
+    flex-shrink: 0;
+  }
+}
+
+.sidebar-sticky {
+  @media screen and (min-width: 900px) {
+    position: sticky;
+    top: 50px;
+  }
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+  
+  @media screen and (min-width: 900px) {
+    max-width: 720px;
+  }
+}
+
+// Masthead layout modifications in Sidebar
+.sidebar {
+  .masthead {
+    padding: 20px 0;
+    border-bottom: 1px solid $lightGray;
+    
+    @media screen and (min-width: 900px) {
+      padding: 0;
+      border-bottom: none;
+      text-align: left;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  .site-avatar {
+    @media screen and (min-width: 900px) {
+      float: none;
+      display: block;
+      margin-bottom: 20px;
+      margin-right: 0;
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .site-info {
+    @media screen and (min-width: 900px) {
+      float: none;
+      display: block;
+      margin-bottom: 25px;
+    }
+  }
+
+  .site-name {
+    @media screen and (min-width: 900px) {
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  .site-description {
+    @media screen and (min-width: 900px) {
+      margin-top: 6px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+  }
+
+  // Sidebar Vertical Navigation
+  .site-nav {
+    display: block;
+    margin-top: 15px;
+    
+    @media screen and (min-width: 900px) {
+      margin-top: 0;
+      margin-bottom: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      float: none;
+    }
+    
+    a {
+      display: inline-block;
+      color: $darkGray;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      @media screen and (min-width: 900px) {
+        margin-left: 0;
+        padding: 8px 16px;
+        border-left: 3px solid transparent;
+        font-size: 15px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        
+        &:hover {
+          color: $blue;
+          padding-left: 20px;
+          background-color: lighten($blue, 47%);
+          border-radius: 0 4px 4px 0;
+        }
+        
+        &.active {
+          color: $blue;
+          font-weight: 600;
+          border-left-color: $blue;
+          padding-left: 20px;
+          background-color: lighten($blue, 45%);
+          border-radius: 0 4px 4px 0;
+        }
+      }
+    }
+  }
+
+  // Sidebar Social Icons
+  .sidebar-social {
+    display: none;
+    
+    @media screen and (min-width: 900px) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      border-top: 1px solid $lightGray;
+      padding-top: 25px;
+      
+      .svg-icon {
+        width: 26px;
+        height: 26px;
+        transition: transform 0.2s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+// Adjust container padding/width globally
+#main.container {
+  // Reset the default container styles when wrapper handles width
+  .layout-wrapper & {
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+// Footer cleanup on Desktop
+.wrapper-footer {
+  @media screen and (min-width: 900px) {
+    display: none; // Hidden on desktop since it is in the sidebar
+  }
+}
