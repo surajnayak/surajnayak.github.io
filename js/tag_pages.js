@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tagPills = document.querySelectorAll('.tag-cloud .tag-pill');
   const tagSections = document.querySelectorAll('.tag-group-section');
 
-  // Filter function for search input
+  // Filter function for search input (filters tags and post text)
   function filterTags() {
     const query = searchInput.value.toLowerCase().trim();
     
@@ -17,22 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
       tagPills.forEach(pill => pill.classList.remove('active'));
     }
 
-    // Filter cloud tag pills
-    tagPills.forEach(pill => {
-      const tagName = pill.querySelector('span').textContent.toLowerCase();
-      if (tagName.includes(query)) {
-        pill.style.display = 'inline-flex';
-      } else {
-        pill.style.display = 'none';
-      }
-    });
-
-    // Filter tag sections below
+    // Filter tag sections and individual posts inside them
     tagSections.forEach(section => {
       const sectionTag = section.getAttribute('data-tag');
       const isTagMatch = sectionTag.replace(/-/g, ' ').includes(query) || sectionTag.includes(query);
+      
+      const postItems = section.querySelectorAll('.tag-post-item');
+      let sectionHasVisiblePosts = false;
 
-      if (query === '' || isTagMatch) {
+      postItems.forEach(item => {
+        const titleText = item.querySelector('.tag-post-title').textContent.toLowerCase();
+        const descElement = item.querySelector('.tag-post-description');
+        const descText = descElement ? descElement.textContent.toLowerCase() : '';
+        
+        const isPostMatch = titleText.includes(query) || descText.includes(query);
+
+        // Show post if the search query matches the post title/description, or if the tag itself matches, or if query is empty
+        if (query === '' || isTagMatch || isPostMatch) {
+          item.style.display = 'block';
+          sectionHasVisiblePosts = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Show/hide section based on whether it contains any matching posts
+      if (query === '' || sectionHasVisiblePosts) {
         section.style.display = 'block';
         setTimeout(() => {
           section.classList.remove('hidden');
@@ -42,10 +52,33 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.display = 'none';
       }
     });
+
+    // Filter cloud tag pills based on tag name or whether their sections have matching posts
+    tagPills.forEach(pill => {
+      const pillTag = pill.getAttribute('data-tag');
+      const tagName = pill.querySelector('span').textContent.toLowerCase();
+      const isTagMatch = tagName.includes(query);
+      
+      const matchingSection = Array.from(tagSections).find(sec => sec.getAttribute('data-tag') === pillTag);
+      const sectionHasPosts = matchingSection ? Array.from(matchingSection.querySelectorAll('.tag-post-item')).some(item => item.style.display !== 'none') : false;
+
+      if (query === '' || isTagMatch || sectionHasPosts) {
+        pill.style.display = 'inline-flex';
+      } else {
+        pill.style.display = 'none';
+      }
+    });
   }
 
   // Active tag filter function
   function selectTag(selectedSlug) {
+    // Reset all post items to block since we are not searching
+    tagSections.forEach(section => {
+      section.querySelectorAll('.tag-post-item').forEach(item => {
+        item.style.display = 'block';
+      });
+    });
+
     // If no tag selected, show all sections
     if (!selectedSlug) {
       tagPills.forEach(pill => pill.classList.remove('active'));
