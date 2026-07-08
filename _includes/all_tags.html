@@ -15,8 +15,12 @@
 {% for count_and_tag in counts_and_tags_sorted %}
     {% assign tag = count_and_tag | split:":::" | last | strip %}
     {% assign count = site.tags[tag].size %}
-    <a href="/tag_index/#{{ tag | slugify }}" class="btn btn-outline-primary tag-btn">
-        <span class="fa-solid fa-tag" aria-hidden="true"></span> {{ tag }} ({{ count }})
+    <a href="/tag_index/#{{ tag | slugify }}" class="tag-pill" data-tag="{{ tag | slugify }}">
+        <svg class="tag-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75z"/>
+        </svg>
+        <span>{{ tag }}</span>
+        <span class="tag-count">{{ count }}</span>
     </a>
 {% endfor %}
 <!-- Based on https://github.com/peterroelants/peterroelants.github.io/blob/main/_includes/all_tags.html -->
