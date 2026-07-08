@@ -146,29 +146,6 @@
     }
   }
 
-  // Sidebar Social Icons
-  .sidebar-social {
-    display: none;
-    
-    @media screen and (min-width: 900px) {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-      border-top: 1px solid $lightGray;
-      padding-top: 25px;
-      
-      .svg-icon {
-        width: 26px;
-        height: 26px;
-        transition: transform 0.2s ease;
-        
-        &:hover {
-          transform: translateY(-2px);
-        }
-      }
-    }
-  }
 }
 
 // Adjust container padding/width globally
@@ -179,12 +156,5 @@
     max-width: 100%;
     padding: 0;
     width: 100%;
-  }
-}
-
-// Footer cleanup on Desktop
-.wrapper-footer {
-  @media screen and (min-width: 900px) {
-    display: none; // Hidden on desktop since it is in the sidebar
   }
 }
