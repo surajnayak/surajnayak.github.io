@@ -40,7 +40,9 @@
   max-width: 100%;
   
   @media screen and (min-width: 900px) {
+    width: auto;
     max-width: 720px;
+    min-width: 0;
   }
 }
 
