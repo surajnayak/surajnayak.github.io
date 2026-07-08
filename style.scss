@@ -271,6 +271,18 @@ nav {
   }
 }
 
+.entry {
+  font-family: $lora;
+  font-size: 19.5px;
+  line-height: 1.62;
+  color: lighten($black, 12%);
+
+  // Keep headings inside post content as Inter (sans-serif) for dynamic contrast
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $helveticaNeue;
+  }
+}
+
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
